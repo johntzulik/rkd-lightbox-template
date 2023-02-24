@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Lb builder v1.0</title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="css/nucleo-icons.css" rel="stylesheet" />
+  <link href="css/nucleo-svg.css" rel="stylesheet" />
+  <link href="css/lightbox.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link id="pagestyle" href="css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <link rel='stylesheet' href='css/spectrum.css' />
+
+</head>
+
+<body class="g-sidenav-show bg-gray-100">
+  <div class="position-absolute w-100 min-height-500 top-0">
+    <span class="mask bg-primary opacity-6"></span>
+  </div>
+
+  <div class="main-content position-relative max-height-vh-100 h-100">
+    <div class="container-fluid py-4">
+      <div class="row ">
+        <div class="col-4">
+          <form class="card">
+            <div class="card-header pb-0">
+              <div class="d-flex align-items-center">
+                <p class="mb-0">LightBox Builder</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <h2 class="text-uppercase text-sm">Global Options</h2>
+              <hr class="horizontal dark" />
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input name="previewMode" id="previewMode" class="form-check-input" type="checkbox" value="true" checked disabled />
+                      <label for="previewMode" class="form-control-label">By default the preview mode is enabled</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="cookieName" class="form-control-label">Set the cookie name (required)</label>
+                    <input name="cookieName" id="cookieName" class="form-control" type="text" value="lb_client_YYMM_title_of_the_task"
+                      placeholder="lb_client_YYMM_title_of_the_task" />
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="previewType">Select the preview type</label>
+                  <select name="previewType" id="previewType" class="form-control">
+                    <option value="standard" selected>Standard</option>
+                    <option value="session">By Session</option>
+                    <option value="always">Always</option>
+                  </select>
+                  <div class="form-group cookieLifetime">
+                    <label for="cookieLifetime" class="form-control-label">Select Hours</label>
+                    <input name="cookieLifetime" id="cookieLifetime" class="form-control" type="text" value="24" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="idforlb" class="form-control-label">Set the number for ID</label>
+                    <input name="idforlb" id="idforlb" class="form-control" type="text" value="000" placeholder="102622" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="globalOverlay" class="form-control-label">Set the color for the
+                      Overlay</label><br>
+                    <input name="globalOverlay"  id="globalOverlay" class="form-control" type="text" value="rgba(0, 0, 0, 0.9)"
+                      placeholder="rgba(0, 0, 0, 0.9)" />
+                  </div>
+                </div>
+              </div>
+
+
+              <!--  DESKTOP OPTIONS  -->
+              <hr class="horizontal dark" />
+              <h2 class="text-uppercase text-sm">
+                Timer Options For Desktop
+              </h2>
+              <hr class="horizontal dark" />
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="true" name="isVisibleforDesktop" id="isVisibleforDesktop" checked />
+                <label class="form-check-label" for="isVisibleforDesktop">
+                  Is Desktop visible?
+                </label>
+              </div>
+              <div class="row desktopOptions" id="desktopOptions">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="desktopUrlImage" class="form-control-label">Set the URL for image
+                      (required)</label>
+                    <input name="desktopUrlImage"  id="desktopUrlImage" class="form-control" type="text" />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="desktopUrlTarget" class="form-control-label">Set the URL fo the target
+                      (required)</label>
+                    <input name="desktopUrlTarget" id="desktopUrlTarget" class="form-control" type="text" />
+                  </div>
+                </div>
+
+                <hr class="horizontal dark" />
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="closebuttonforDesktopTop" class="form-control-label">Set the Top for the button</label>
+                    <input name="closebuttonforDesktopTop" id="closebuttonforDesktopTop" class="form-control" type="text" value="-30px" placeholder="0px" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="closebuttonforDesktopRight" class="form-control-label">Set the Right for the button</label>
+                    <input name="closebuttonforDesktopRight" id="closebuttonforDesktopRight" class="form-control" type="text" value="0px" placeholder="0px" />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="closebuttonColor" class="form-control-label">Set the color for the button</label>
+                    <input name="closebuttonColor" id="closebuttonColor" class="form-control" type="text" value="#000000" placeholder="#000000" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="closebuttonforDesktop" class="form-control-label">Set background of the button</label>
+                    <input name="closebuttonforDesktop" id="closebuttonforDesktop" class="form-control" type="text" value="#ffffff" placeholder="#ffffff" />
+                  </div>
+                </div>
+                <p class="text-sm">Leave empty to chose default options</p>
+              </div>
+              <!--END DESKTOP OPTIONS -->
+
+              <!--  TIMER DESKTOP  -->
+              <hr class="horizontal dark" />
+              <h2 class="text-uppercase text-sm">
+                Timer Options For Desktop
+              </h2>
+              <hr class="horizontal dark" />
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="isTimerEnabledForDesktop" id="isTimerEnabledForDesktop" />
+                <label class="form-check-label" for="isTimerEnabledForDesktop">
+                  Is timer visible for desktop?
+                </label>
+              </div>
+              <div class="row timerOptionsDesktop" id="timerOptionsDesktop" style="display: none">
+                <div class="col-md-6">
+
+                  <div class="form-group">
+                    <label for="timerForDesktopURL" class="form-control-label">Set the URL for Timer</label>
+                    <input name="timerForDesktopURL" id="timerForDesktopURL" class="form-control" type="text" />
+                  </div>
+                </div>
+                  <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timerForDesktopTop" class="form-control-label">Set Top for the timer</label>
+                    <input name="timerForDesktopTop" id="timerForDesktopTop" class="form-control" type="text" value="20%" placeholder="20%" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timerForDesktopLeft" class="form-control-label">Set Left for the timer</label>
+                    <input name="timerForDesktopLeft" id="timerForDesktopLeft" class="form-control" type="text" value="30%" placeholder="30%" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timerForDesktopWidth" class="form-control-label">Set Width for timer</label>
+                    <input name="timerForDesktopWidth" id="timerForDesktopWidth" class="form-control" type="text" value="45%" placeholder="30%" />
+                  </div>
+                </div>
+              </div>
+              <!--END TIMER DESKTOP-->
+
+             <!--Mobile-->
+              <hr class="horizontal dark" />
+              <h1 class="text-uppercase text-sm">Options for mobile</h1>
+              <hr class="horizontal dark" />
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="isVisibleforMobile" id="isVisibleforMobile" />
+                <label class="form-check-label" for="isVisibleforMobile">
+                  Is mobile visible?
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sameDataAsDesktop" id="sameDataAsDesktop" />
+                <label class="form-check-label" for="sameDataAsDesktop">
+                  Same date as Desktop?
+                </label>
+              </div>
+              <div class="row mobileOptions" id="mobileOptions" style="display: none">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="mobileUrlImage" class="form-control-label">Set the URL for image
+                      (required)</label>
+                    <input name="mobileUrlImage" id="mobileUrlImage" class="form-control" type="text" />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="mobileUrltarget" class="form-control-label">Set the URL fo the target
+                      (required)</label>
+                    <input name="mobileUrltarget" id="mobileUrltarget" class="form-control" type="text" />
+                  </div>
+                </div>
+                <hr class="horizontal dark" />
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="closebuttonforMobileTop" class="form-control-label">Set the Top for the button</label>
+                    <input name="closebuttonforMobileTop" id="closebuttonforMobileTop" class="form-control" type="text" value="-35px" placeholder="10px" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="closebuttonforMobileRight" class="form-control-label">Set the Right for the button</label>
+                    <input name="closebuttonforMobileRight" id="closebuttonforMobileRight" class="form-control" type="text" value="0px"
+                      placeholder="0px" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="closebuttonforMobileColor" class="form-control-label">Set the color for the button</label>
+                    <input name="closebuttonforMobileColor" id="closebuttonforMobileColor" class="form-control" type="text" value="#000000"
+                      placeholder="#000000" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="closebuttonforMobileBackground" class="form-control-label">Set background of the button</label>
+                    <input name="closebuttonforMobileBackground" id="closebuttonforMobileBackground" class="form-control" type="text" value="#ffffff"
+                      placeholder="#ffffff" />
+                  </div>
+                </div>
+                <p class="text-sm">Leave empty to chose default options</p>
+              </div>
+              <!--END Mobile-->
+
+              <!--  TIMER DESKTOP  -->
+              <hr class="horizontal dark" />
+              <h2 class="text-uppercase text-sm">Timer Options For Mobile</h2>
+              <hr class="horizontal dark" />
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="isTimerEnabledforMobile" id="isTimerEnabledforMobile" />
+                <label class="form-check-label" for="isTimerEnabledforMobile">
+                  Is timer visible for Mobile?
+                </label>
+              </div>
+              <div class="row timerOptionsMobile" id="timerOptionsMobile" style="display: none">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timerForMobileUrl" class="form-control-label">Set the URL for Timer</label>
+                    <input name="timerForMobileUrl" id="timerForMobileUrl" class="form-control" type="text" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timerForMobileTop" class="form-control-label">Set Top for the timer</label>
+                    <input name="timerForMobileTop" id="timerForMobileTop" class="form-control" type="text" value="20%" placeholder="20%" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timerForMobileLeft" class="form-control-label">Set Left for the timer</label>
+                    <input name="timerForMobileLeft" id="timerForMobileLeft" class="form-control" type="text" value="30%" placeholder="30%" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="timerForMobileWidth" class="form-control-label">set Width for timer</label>
+                    <input id="timerForMobileWidth" name="timerForMobileWidth" class="form-control" type="text" value="45%" placeholder="30%" />
+                  </div>
+                </div>
+              </div>
+              <!--END TIMER DESKTOP-->
+            </div>
+            <input type="hidden" value="" id="uuid" name="uuid" >
+          </form>
+        </div>
+        <div class="col previewLB">
+          <div class="card" >
+            <div class="card-header pb-0">
+              <div class="d-flex align-items-center">
+                <button id='sendlbinformation' class="btn btn-primary btn-sm ms-auto" type="submit">Save LightBox</button>
+                <button id='lbViewerRefresh' class="btn btn-primary btn-sm ms-auto" >Refresh Iframe</button>
+                <input type="hidden" value="" id="urlIframe" name="urlIframe">
+                <button id='lbViewerDesktop' class="btn btn-primary btn-sm ms-auto" >Desktop</button>
+                <button id='lbViewerMobile' class="btn btn-primary btn-sm ms-auto" >Mobile</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <iframe id="lbiframe" src="https://lbendpoint.s3.amazonaws.com/2023-02/lb_msv_2302_last_chance.html" frameborder="0" style="width: 100%;height: 600px;margin: 0 auto;"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" >
+              <div class="card-header pb-0">
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">LightBox Code for GTM</p>
+                  <button id='copycode' class="btn btn-primary btn-sm ms-auto" >Copy</button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <textarea name="gtmcode" id="gtmcode" cols="30" rows="5"></textarea>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src='js/spectrum.js'></script>
+  <script src='js/uuid.js'></script>
+  <script src="js/argon-dashboard-pro.js"></script>
+  <script src='js/index.js'></script>
+  
+</body>
+
+</html>
