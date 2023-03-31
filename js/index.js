@@ -55,8 +55,6 @@ $(function () {
   });
 });
 
-
-
 $(function () {
   $("#sendlbinformation").click(function (e) {
     e.preventDefault();
@@ -112,17 +110,15 @@ $(function () {
     }
 
     window.lbObject = lboptions;
-    var stringify_ = JSON.stringify(lboptions);
-    var stringify = JSON.parse(JSON.stringify(lboptions))
-
-    //console.log("stringify: ", stringify);
-
+    var jsonstringify = JSON.stringify(lboptions);
+    var local = true;
+    urlapi = local ? 'http://localhost:3000/lbendpoint' : '' ;
     $.ajax({
       async: true,
       crossDomain: true,
-      url: "http://localhost:3000/lbendpoint",
+      url: urlapi,
       method: "post",
-      data: stringify_,
+      data: jsonstringify,
       success: function (data) {
         let {message, code} = JSON.parse(data);
         console.log("data ", data);
@@ -130,7 +126,7 @@ $(function () {
         console.log("code ", code);
         loadIframe("lbiframe", message);
         $("#urlIframe").val(message);
-        $("#gtmcode").val(code);
+        $("#gtmcode").val(code);        
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
         console.log("Status: ", XMLHttpRequest);
@@ -138,13 +134,7 @@ $(function () {
         console.log("Error: ", textStatus);
       },
     });
-
-
-
-
   });
-
-
 });
 
 $(function () {
@@ -182,7 +172,6 @@ $(function () {
   timerForMobileLeft = urlParams.get("timerForMobileLeft") !== null ? urlParams.get("timerForMobileLeft") : '',
   timerForMobileWidth = urlParams.get("timerForMobileWidth") !== null ? urlParams.get("timerForMobileWidth") : '';
 
-  //http://localhost:5500/?cookieName=lb_msv_2302_last_chance&previewMode=true&previewType=standard&cookieLifetime=24&idforlb=021723&globalOverlay=rgba%280%2C%200%2C%200%2C%200.9%29&uuid=463B192E-20FD-49DC-87AE-EA937439E21F&isVisibleforDesktop=true&desktopUrlImage=https%3A%2F%2Fs3.amazonaws.com%2Fxtemp19.lb%2FMSV%2FMSV%2BEOY%2BGiving%2BLightbox%2B2022%2B-%2BDesktop%2B-%2B2.png&desktopUrlTarget=https%3A%2F%2Fsidroth.org%2Fgive%2F%3Futm_campaign%3D2022yearend%26utm_medium%3Ddesktop%26utm_source%3Dtakeover%0A&closebuttonforDesktopTop=-30px&closebuttonforDesktopRight=0px&closebuttonColor=%23000000&closebuttonforDesktop=%23ffffff&isTimerEnabledForDesktop=true&timerForDesktopURL=https%3A%2F%2Fimg1.niftyimages.com%2Fs31%2Frmir%2Fb_br&timerForDesktopTop=34%25&timerForDesktopLeft=45%25&timerForDesktopWidth=50%25&isVisibleforMobile=true&mobileUrlImage=https%3A%2F%2Fs3.amazonaws.com%2Fxtemp19.lb%2FMSV%2FMSV%2BEOY%2BGiving%2BLightbox%2B2022%2B-%2BMobile%2B-%2B2.png%0A&mobileUrltarget=https%3A%2F%2Fsidroth.org%2Fgive%2F%3Futm_campaign%3D2022yearend%26utm_medium%3Dmobile%26utm_source%3Dtakeover%0A&closebuttonforMobileTop=-35px&closebuttonforMobileRight=0px&closebuttonforMobileColor=%23000000&closebuttonforMobileBackground=%23ffffff&isTimerEnabledforMobile=true&timerForMobileUrl=https%3A%2F%2Fimg1.niftyimages.com%2Fs31%2Frmir%2Fb_br&timerForMobileTop=35%25&timerForMobileLeft=10%25&timerForMobileWidth=83%25
   $("#cookieName").val(cookieName);
   $("#previewMode").val(previewMode);
   $("#previewType").val(previewType);
@@ -221,13 +210,13 @@ $(function () {
     e.preventDefault();
     $("iframe#lbiframe")
       .animate({ width: "100%" })
-      .animate({ height: "600px" });
+      .animate({ height: "480px" });
   });
   $("#lbViewerMobile").click(function (e) {
     e.preventDefault();
     $("iframe#lbiframe")
       .animate({ width: "250px" })
-      .animate({ height: "500px" });
+      .animate({ height: "380px" });
   });
   
   $("#lbViewerRefresh").click(function (e) {
@@ -243,6 +232,10 @@ $(function () {
   $("#idforlb").val(today);
 
   $("#uuid").val(Math.uuid());
+
+  $("#urllink").change(function () {
+    $("#urllinkbutton").attr('href',$(this).val()+"/?"+window.lbObject.cookieName);
+  });
 
   $("#previewType").change(function () {
     if ($(this).val() == "standard") {

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Lb builder v1.0</title>
+  <title>Lb builder v1.0.1</title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -20,12 +20,10 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-  <div class="position-absolute w-100 min-height-500 top-0">
-    <span class="mask bg-primary opacity-6"></span>
-  </div>
 
-  <div class="main-content position-relative max-height-vh-100 h-100">
-    <div class="container-fluid py-4">
+
+  <div class="main-content  bg-secondary position-relative max-height-vh-100 h-100">
+    <div class="container-fluid p-1">
       <div class="row ">
         <div class="col-4">
           <form class="card">
@@ -104,7 +102,7 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="desktopUrlTarget" class="form-control-label">Set the URL fo the target
+                    <label for="desktopUrlTarget" class="form-control-label">Set the URL for the target
                       (required)</label>
                     <input name="desktopUrlTarget" id="desktopUrlTarget" class="form-control" type="text" />
                   </div>
@@ -207,7 +205,7 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="mobileUrltarget" class="form-control-label">Set the URL fo the target
+                    <label for="mobileUrltarget" class="form-control-label">Set the URL for the target
                       (required)</label>
                     <input name="mobileUrltarget" id="mobileUrltarget" class="form-control" type="text" />
                   </div>
@@ -298,7 +296,7 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <iframe id="lbiframe" src="https://lbendpoint.s3.amazonaws.com/2023-02/lb_msv_2302_last_chance.html" frameborder="0" style="width: 100%;height: 600px;margin: 0 auto;"></iframe>
+                <iframe id="lbiframe" src="" frameborder="0" style="width: 100%;height: 450px;margin: 0 auto;"></iframe>
               </div>
             </div>
           </div>
@@ -317,10 +315,29 @@
               </div>
             </div>
         </div>
+        <div class="col">
+          <div class="card" >
+            <div class="card-header pb-0">
+              <div class="d-flex align-items-center">
+                <p class="mb-0">Put your URL in the input box below (e.g. http://mysite.org)</p>
+                <a href="" id='urllinkbutton' class="btn btn-primary btn-sm ms-auto" target="_blank">Open</a>
+              </div>
+            </div>
+            <div class="card-body pt-0">
+              <div class="row">
+                <input name="urllink" id="urllink" value="http://mysite.org">
+              </div>
+            </div>
+          </div>
+      </div>
       </div>
 
     </div>
   </div>
+
+
+
+
 
   <!--   Core JS Files   -->
   <script src="js/jquery-3.5.1.js"></script>
