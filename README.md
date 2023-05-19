@@ -21,6 +21,12 @@
       </ul>
     </li>
     <li><a href="#uso">Uso</a></li>
+    <li><a href="#postman">Postman</a>
+      <ul>
+        <li><a href="#sign-up">Sign Up</a></li>
+        <li><a href="#sign-in">Sign In</a></li>
+      </ul>
+    </li>
     <li><a href="#subir-cambios-a-produccion">Subir Cambios a produccion</a></li>
   </ol>
 </details>
@@ -73,8 +79,8 @@ nvm use 16
 ```
 pnpm install
 ```
-Para poder correr en el ambiente local deberas crear un archivo llamado .env en el folder raiz y ahi deberas poner los siguientes parametros
-```
+Para poder correr en el ambiente local deberas crear un archivo llamado `.env` en el folder raiz y ahi deberas poner los siguientes parametros
+```js
 DATABASE_URL="postgresql://user:password@url.to.the.database.com/dabatase?schema=public"
 JWT_SECRET="mifrasesecreta"
 ```
@@ -84,7 +90,7 @@ Esto tambien te lo puede proporcionar [Jesus](https://github.com/jarriaga)
 
 ## Uso
 #### Finalmente deberas poder correr tu aplicacion en el puerto 3000 con el siguiente comando
-```
+```sh
 # modo de desarrollo
 $ pnpm run start
 
@@ -95,6 +101,44 @@ $ pnpm run start:dev
 $ pnpm run start:prod
 ```
 
+Recuerda que puedes abrir directamente desde
+
+[localhost:3000](http://localhost:3000/)
+
+
+<p align="right">(<a href="#readme-top">Subir</a>)</p>
+
+## Postman 
+
+[![Postman][postman-badge]][postman-url] 
+
+Para poder consumir esta API, puedes utilizar POSTMAN
+### Sign Up
+```js 
+http://localhost:3000/auth/signup
+```
+<p align="center">
+  <a href="#postman"><img src="https://res.cloudinary.com/johntzulik/image/upload/v1684475870/0518235547-localhost_3000_auth_signup_-_My_Workspace_yvutim.jpg" width="50%" alt="postman" /></a>
+</p>
+
+Recuerda que dentro del `Body` podras agregar en la parte de  `x-www-form-urlencoded` los `key`  y `value` del `email` y `password`  como se muestra en la imagen anterior
+
+Los parametros `firstName` y `lastName` son opcionales
+
+### Sign In
+
+```js 
+http://localhost:3000/auth/signup
+```
+<p align="center">
+  <a href="#postman"><img src="https://res.cloudinary.com/johntzulik/image/upload/v1684476359/0519230543-localhost_3000_auth_signin_-_My_Workspace_g3wbna.jpg" width="50%" alt="postman" /></a>
+</p>
+
+Recuerda que dentro del `Body` podras agregar en la parte de  `x-www-form-urlencoded` los `key`  y `value` del `email` y `password`  como se muestra en la imagen anterior
+
+Recuerda que para generar tu `access_token`, el `email` y el `password` son requeridos
+
+
 <p align="right">(<a href="#readme-top">Subir</a>)</p>
 
 ## Subir Cambios a produccion
@@ -103,6 +147,7 @@ Para poder subir tus cambios a produccion deberas seguir las siguientes instrucc
 
 
 [product-screenshot]: https://res.cloudinary.com/johntzulik/image/upload/v1684452916/TotalGlow-sombra_wz5qkf.png
+[postman-image-1]: https://res.cloudinary.com/johntzulik/image/upload/v1684475870/0518235547-localhost_3000_auth_signup_-_My_Workspace_yvutim.jpg
 [nestjs-badge]: https://img.shields.io/badge/nestjs-%234a4a4a.svg?style=for-the-badge&logo=nestjs&logoColor=E0234E
 [nestjs-url]: https://docs.nestjs.com/
 [jwt-badge]: https://img.shields.io/badge/JWT-%234a4a4a.svg?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=d63aff
@@ -113,3 +158,5 @@ Para poder subir tus cambios a produccion deberas seguir las siguientes instrucc
 [nodejs-url]:https://nodejs.org/en
 [prisma-badge]: https://img.shields.io/badge/Prisma-%234a4a4a.svg?style=for-the-badge&logo=Prisma&logoColor=3982CE
 [prisma-url]:https://www.prisma.io/
+[postman-badge]: https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white
+[postman-url]:https://www.postman.com/
